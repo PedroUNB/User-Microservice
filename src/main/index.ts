@@ -7,7 +7,7 @@ const amqpConnection = new RabbitmqServer(RABBITMQ_URI);
 
 void amqpConnection.start().then(async () => {
   const app = await setupApp(amqpConnection);
-  app.listen(5000, () => {
+  app.listen(5001, () => {
     console.log('server is ranning');
   });
 }).catch(console.error);
