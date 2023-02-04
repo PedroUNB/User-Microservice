@@ -10,9 +10,8 @@ export const setupApp = async (amqpConnection: RabbitmqServer): Promise<Express>
   });
 
   await amqpConnection.publishInQueue('auth-service-login', JSON.stringify(
-    {email: "pedro.dev.oliveira@gmail.com", password: "1234"}
+    { email: 'pedro.dev.oliveira@gmail.com', password: '1234' }
   ));
-
 
   await setupAmqpAdapters(amqpConnection);
   const app = express();

@@ -4,12 +4,10 @@ import { type Validation } from '@/interfaces/protocols/validation';
 
 export class LoginController implements Controller {
   constructor (
-    private readonly validation: Validation,
-    private readonly authenticate
+    private readonly validation: Validation
   ) {}
 
   async handle (request: any): Promise<HttpResponse> {
-    console.log(request);
     const error = this.validation.validate(request);
     if (error) {
       return badRequest(error);
